@@ -1,6 +1,7 @@
 package com.ReusableFunctions;
 
 import java.io.File;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -67,7 +68,24 @@ public  void screenshot(String path)
 	}catch(Exception e)
 	{
 		System.out.println("Screenshot not found");
-	}
-	
+	}	
 }
+public void MultipleGettext(List<WebElement> element)
+{
+	
+	List<WebElement> text = element;
+	System.out.println(text.size());
+	for(WebElement textcount : text)
+	{
+		String Totallist = textcount.getText();
+		System.out.println("*********************************");
+		System.out.println(Totallist);
+	}
+}
+	
+public void Getvalue(WebElement element)
+    { 
+	  String Text= element.getText();
+	  System.out.println(Text);
+    }
 }

@@ -1,6 +1,7 @@
 package com.BaseClass;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -19,7 +20,7 @@ public class Library {
 	public static Properties prop;
 	// lancing application 
 	public void launchapplication() throws IOException {
-		FileInputStream input = new FileInputStream("/Flipkart_E2E_Project/src/test/resources/Properties/Config.Property");
+		FileInputStream input = new FileInputStream("src/test/resources/Properties/Config.Property");
 		
 		prop = new Properties();
 		prop.load(input);
@@ -37,7 +38,7 @@ public class Library {
 				driver = new FirefoxDriver();
 			}
 			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 			driver.get(prop.getProperty("url"));	
 		}
 		catch(Exception e)
